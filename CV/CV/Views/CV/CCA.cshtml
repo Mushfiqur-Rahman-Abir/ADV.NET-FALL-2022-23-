@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CCA</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align:center"><u>Curriculum Vitae</u></h1>
+        <h2 style="text-align:center"><u>Extra-curriculum Activity</u></h2>
+        <br />
+        <h4 style="text-align:center">@ViewBag.name1</h4>
+        <br />
+        <h4 style="text-align:center">@ViewBag.name2</h4>
+        <br />
+        <h4 style="text-align:center">@ViewData["extra1"]</h4>
+        <br />
+        <h4 style="text-align:center">@ViewData["extra2"]</h4>
+        <br /><br /><br />
+        <a href="/CV/Intro" class="btn btn-success" role="button">Back</a>
+
+    </div>
+</body>
+</html>

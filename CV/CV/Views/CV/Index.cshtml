@@ -1,0 +1,34 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Curriculum Vitae</title>
+</head>
+<body>
+    <div>
+        <h1 style="text-align:center"><u>Curriculum Vitae</u></h1>
+        <h2 style="text-align:center"><u>Personal Information</u></h2>
+        <br />
+        <h4 style="text-align:center">Name: @ViewBag.Name</h4>
+        <h4 style="text-align:center">Father's Name: Abdus Sattar</h4>
+        <h4 style="text-align:center">Mother's 'Name: Mafruha Sultana</h4>
+        <h4 style="text-align:center">Date of Birth: 31 Dec, 1999</h4>
+        <h4 style="text-align:center">Gender: Male</h4>
+        <h4 style="text-align:center">Nationality: @ViewData["Nationality"]</h4>
+        <h4 style="text-align:center">Marital Status: Unmarried</h4>
+        <h4 style="text-align:center">Present Address: 16/2/A, Bishdag, Tolarbag, Mirpur-1, Dhaka-1216</h4>
+        <h4 style="text-align:center">Permanent Address: @ViewBag.PermanentAddress</h4>
+        <h4 style="text-align:center">Phone no: +8801745090717</h4>
+        <h4 style="text-align:center">Email:  @ViewData["Email"]</h4>
+        <br /><br /><br />
+        <a href="/CV/Intro" class="btn btn-success" role="button">Back</a>
+
+    </div>
+</body>
+</html>
