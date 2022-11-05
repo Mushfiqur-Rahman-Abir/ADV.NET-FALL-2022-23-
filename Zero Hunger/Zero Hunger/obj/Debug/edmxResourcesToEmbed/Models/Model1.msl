@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="zerohungerModelStoreContainer" CdmEntityContainer="zerohungerEntities">
+    <EntitySetMapping Name="employees">
+      <EntityTypeMapping TypeName="zerohungerModel.employee">
+        <MappingFragment StoreEntitySet="employee">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="empname" ColumnName="empname" />
+          <ScalarProperty Name="address" ColumnName="address" />
+          <ScalarProperty Name="mobile" ColumnName="mobile" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="restaurants">
+      <EntityTypeMapping TypeName="zerohungerModel.restaurant">
+        <MappingFragment StoreEntitySet="restaurant">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="resname" ColumnName="resname" />
+          <ScalarProperty Name="food" ColumnName="food" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="available" ColumnName="available" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ngoes">
+      <EntityTypeMapping TypeName="zerohungerModel.ngo">
+        <MappingFragment StoreEntitySet="ngo">
+          <ScalarProperty Name="expiredate" ColumnName="expiredate" />
+          <ScalarProperty Name="placingdate" ColumnName="placingdate" />
+          <ScalarProperty Name="empid" ColumnName="empid" />
+          <ScalarProperty Name="resid" ColumnName="resid" />
+          <ScalarProperty Name="id" ColumnName="id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
