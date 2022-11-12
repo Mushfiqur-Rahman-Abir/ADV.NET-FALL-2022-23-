@@ -1,0 +1,225 @@
+﻿@model IEnumerable<Zero_Hunger.Models.NgoAvail>
+
+
+<div class="row">
+
+    <div class="col-sm-3">
+
+
+
+
+        @using (Html.BeginForm("Save", "ngo", FormMethod.Post, new { id = "popupForm" }))
+        {
+
+            
+
+           
+
+        }
+
+    </div>
+
+    <div class="col-sm-8">
+
+
+        <table class="table" style="text-align:center">
+
+
+            <tr>
+                <th>Restaurent Name</th>
+                <th>Employee ID</th>
+                <th>Start Date</th>
+                <th>End Date</th>
+                <th>Availablity</th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @item.resid
+                    </td>
+                    <td>
+                        @item.employeeid
+                    </td>
+                    <td>
+                        @item.sdate
+                    </td>
+                    <td>
+                        @item.edate
+                    </td>
+                    <td>
+                        @item.available
+                    </td>
+                </tr>
+            }
+
+        </table>
+
+        <div class="form-group">
+            <label><a href="/ngo" class="btn btn-danger"><span>Back</span> </a> </label>
+
+        </div>
+
+
+
+
+    </div>
+
+</div>
+
+@section scripts
+{
+    <script src="~/Scripts/jquery-3.4.1.js"></script>
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+
+    <script>getRes();
+            load();
+
+            function load() {
+
+                $("#employeeid").attr("disabled", "disabled");
+                $("#employeename").attr("disabled", "disabled");
+                $("#sdate").attr("disabled", "disabled");
+                $("#edate").attr("disabled", "disabled");
+
+            }
+
+
+
+
+
+
+
+
+            function getRes() {
+
+                $.ajax({
+
+                    type: 'GET',
+                    url: '/ngo/Getres',
+                    dataType: 'JSON',
+                    success: function (data) {
+
+                        console.log(data);
+
+                        for (var i = 0; i < data.length; i++) {
+
+
+                            $("#resid").append($("<option/>", {
+                                text: data[i].resname
+                            }));
+
+
+                        }
+
+
+
+
+
+                    }
+
+
+
+
+
+                });
+
+
+
+            }
+
+            $("#resid").change(function () {
+
+
+                available();
+
+            });
+
+            function available() {
+
+                $.ajax({
+
+                    type: 'POST',
+                    url: '/ngo/Getavail?resname=' + $("#resid").val(),
+                    dataType: 'JSON',
+                    success: function (data) {
+
+                        console.log(data)
+
+                        var avl = data;
+
+                        if (avl == "yes") {
+
+                            $("#employeeid").removeAttr('disabled');
+                            $("#employeename").removeAttr('disabled');
+                            $("#sdate").removeAttr('disabled');
+                            $("#edate").removeAttr('disabled');
+
+                        }
+                        else {
+
+                            $("#employeeid").attr("disabled", "disabled");
+                            $("#employeename").attr("disabled", "disabled");
+                            $("#sdate").attr("disabled", "disabled");
+                            $("#edate").attr("disabled", "disabled");
+                        }
+
+
+
+
+                    }
+
+                });
+
+
+            }
+
+
+
+
+
+
+
+
+
+            getEmp();
+
+            function getEmp() {
+
+                $("#employeeid").keyup(function (e) {
+
+
+                    $.ajax({
+
+                        type: 'POST',
+                        url: '/ngo/Getid?id=' + $("#employeeid").val(),
+                        dataType: 'JSON',
+                        success: function (data) {
+
+                            console.log(data)
+
+                            $("#employeename").val(data)
+
+
+
+                        }
+
+                    });
+
+
+                });
+            }</script>
+
+
+
+
+
+
+
+
+
+
+}
+
